@@ -124,6 +124,7 @@ To search proxy/DNS logs for internal hosts attempting to resolve the actor's th
 ```splunk
 index=proxy OR index=dns (query="*nickmin.com*" OR query="*kraglist.com*" OR query="*euramark.com*" OR query="*shxibz.com*")
 | stats count, values(query) as requested_domain by src_ip
+```
 ---
 
 ## Analyst Notes
