@@ -4,6 +4,7 @@
 **Date analyzed:** June 2026
 **Source:** Personal inbox (Yahoo Mail, Spam folder)
 **Classification:** Vishing (Voice Phishing) Campaign — Low technical complexity, social-engineering driven
+**Raw samples:** See [`/samples`](./samples) for full anonymized `.eml` headers (personal email address redacted)
 
 ---
 
