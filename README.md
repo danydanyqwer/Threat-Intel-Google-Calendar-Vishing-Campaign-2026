@@ -60,32 +60,23 @@ The sender domains (`nickmin.com`, `kraglist.com`, `euramark.com`, `shxibz.com`)
 
 ## Indicators of Compromise (IOCs)
 
-**Sender domains:**
-```
-nickmin.com
-kraglist.com
-euramark.com
-shxibz.com
-```
-
-**Phone numbers (vishing endpoints):**
-```
-+1 (808) 748-1467
-+1 (805) 303-0426
-+1 (828) 203-7942
-+1 (828) 271-2063
-+1 (805) 303-0425
-+1 (808) 721-3196
-+1 (808) 909-1648
-```
-
-**Fake transaction/activation identifiers (used to add false legitimacy):**
-```
-a5e11c0e-ed84-43a5-9759-4a2ead308ea7
-10a86da0-1cf4-4459-90fc-0e5e1f668c09
-6555cd8e-384c-402a-92b7-3c2f2d20d7b1
-97394def-f48c-4beb-a999-4bb8eb284b64
-```
+| Indicator | Type | Context / Notes |
+| :--- | :--- | :--- |
+| `nickmin.com` | Domain | Throwaway Google Workspace tenant (gappssmtp) — Geek Squad lure |
+| `kraglist.com` | Domain | Throwaway Google Workspace tenant (gappssmtp) — Norton 365 lure |
+| `euramark.com` | Domain | Throwaway Google Workspace tenant (gappssmtp) — McAfee lure |
+| `shxibz.com` | Domain | Throwaway Google Workspace tenant (gappssmtp) — Geek Squad lure |
+| `+1 (808) 748-1467` | Phone (VoIP) | Vishing endpoint (Geek Squad lure, sample 1) |
+| `+1 (805) 303-0426` | Phone (VoIP) | Vishing endpoint (Geek Squad lure, sample 1 — sequential to `.0425`) |
+| `+1 (805) 303-0425` | Phone (VoIP) | Vishing endpoint (McAfee lure, sample 3) |
+| `+1 (828) 203-7942` | Phone (VoIP) | Vishing endpoint (Norton lure, sample 2) |
+| `+1 (828) 271-2063` | Phone (VoIP) | Vishing endpoint (Norton lure, sample 2) |
+| `+1 (808) 721-3196` | Phone (VoIP) | Vishing endpoint (Geek Squad lure, sample 4) |
+| `+1 (808) 909-1648` | Phone (VoIP) | Vishing endpoint (Geek Squad lure, sample 4) |
+| `a5e11c0e-ed84-43a5-9759-4a2ead308ea7` | String (UUID) | Decoy "Activation Key" used in payload body for false legitimacy |
+| `10a86da0-1cf4-4459-90fc-0e5e1f668c09` | String (UUID) | Decoy "Transaction Key" used in payload body |
+| `6555cd8e-384c-402a-92b7-3c2f2d20d7b1` | String (UUID) | Decoy "Access ID" used in payload body |
+| `97394def-f48c-4beb-a999-4bb8eb284b64` | String (UUID) | Decoy "Verification Signature" used in payload body |
 
 ---
 
