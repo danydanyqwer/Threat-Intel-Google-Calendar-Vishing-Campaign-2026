@@ -44,14 +44,14 @@ This is a textbook example of **abusing a trusted platform's legitimate notifica
 
 *(A fifth, near-duplicate Geek Squad sample was also received but omitted here for brevity — same pattern.)*
 
-### Header Analysis (representative sample)
+### Header Analysis (Sample 1 — Geek Squad lure)
 
 ```
 Sender: Google Calendar <calendar-notification@google.com>
-From: [Attacker name] <[random]@[random-domain].com>
-Reply-To: [same random address]
-DKIM: pass (google.com), pass ([domain]-com.20251104.gappssmtp.com)
-SPF: none (domain of [domain].com does not designate permitted sender hosts)
+From: Anandabaskaran Woodfin <anandabaskaranwoodfin@shxibz.com>
+Reply-To: anandabaskaranwoodfin@shxibz.com
+DKIM: pass (google.com), pass (shxibz-com.20251104.gappssmtp.com)
+SPF: none (domain of shxibz.com does not designate permitted sender hosts)
 DMARC: unknown
 ```
 
