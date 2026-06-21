@@ -44,7 +44,7 @@ This is a textbook example of **abusing a trusted platform's legitimate notifica
 
 *(A fifth, near-duplicate Geek Squad sample was also received but omitted here for brevity — same pattern.)*
 
-### Header Analysis (Sample 1 — Geek Squad lure)
+### Header Analysis (Sample 4 — Geek Squad lure)
 
 ```
 Sender: Google Calendar <calendar-notification@google.com>
