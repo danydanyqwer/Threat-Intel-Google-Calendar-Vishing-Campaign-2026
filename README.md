@@ -118,6 +118,12 @@ For a SOC monitoring an organization's Google Workspace environment:
 - **User awareness training** should explicitly cover calendar invite abuse — most phishing training focuses on email links/attachments and misses this vector entirely
 - Since Google does not currently offer granular controls to block calendar invites from unknown external senders at the consumer level, the most effective mitigation is **recipient education**: legitimate billing issues are never resolved by calling a number found inside an unsolicited calendar invite
 
+### Retroactive Hunting Query (Splunk)
+To search proxy/DNS logs for internal hosts attempting to resolve the actor's throwaway Workspace infrastructure:
+
+```splunk
+index=proxy OR index=dns (query="*nickmin.com*" OR query="*kraglist.com*" OR query="*euramark.com*" OR query="*shxibz.com*")
+| stats count, values(query) as requested_domain by src_ip
 ---
 
 ## Analyst Notes
