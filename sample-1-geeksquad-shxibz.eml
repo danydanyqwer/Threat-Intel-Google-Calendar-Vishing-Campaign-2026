@@ -1,0 +1,625 @@
+Received: from 127.0.0.1
+ by atlas-production.v2-mail-prod1-ir2.omega.yahoo.com pod-id atlas--production-ir2-6d754947d8-m7w2c.ir2.yahoo.com with HTTP; Mon, 8 Jun 2026 16:27:59 +0000
+Return-Path: <anandabaskaranwoodfin@shxibz.com>
+X-Originating-Ip: [209.85.222.200]
+Received-SPF: none (domain of shxibz.com does not designate permitted sender hosts)
+Authentication-Results: mta.yahoo.com;
+ dkim=pass header.i=@google.com header.s=20251104 arc_overridden_status=NOT_OVERRIDDEN;
+ dkim=pass header.i=@shxibz-com.20251104.gappssmtp.com header.s=20251104 arc_overridden_status=NOT_OVERRIDDEN;
+ spf=none smtp.mailfrom=shxibz.com arc_overridden_status=NOT_OVERRIDDEN;
+ dmarc=unknown header.from=shxibz.com arc_overridden_status=NOT_OVERRIDDEN;
+X-Apparently-To: victim@example.com; Mon, 8 Jun 2026 16:27:59 +0000
+X-YMailISG: .Z9DBMwWLDt5U3ZKE3j.MaYjVXd3q6_CQRHsAnJdwLHMW1ui
+ ENa5pmtYZmbs4zm1xU2uuqxVyq8SF5SIbeiq_JYHN430QpIjXlQJVCx.qMsI
+ XEGzK7smc6QUp4D_.yfCwkmh_LenipXsS_lRaBAg9LFEpg5gNQ8geye1csM1
+ j56bGrB_jKl5jHw9y5s9l3tDZYquYOsIWoEZcN4EG_czCn2b1mrgRBUPjau9
+ ufl92dQ.dA2M2T59Y.AeucGzuwtm0SRbDoywnfUtUnBFM8vPSyEV7VhViGkQ
+ IlummhW1LQJ101OAalZmJI637E86aos2EkqP.oW0C9GK.C4JZx00n5M3AodF
+ 0OeOu5OX4Ou9mdY4WVxFSWCLkpP69pcAZJCuiwjIvGhgn96KaO8pFRRWBY_6
+ fljzdcA_fTqos2Ry5pJWeA7.tRlCYw6mkNJXWV0xFlzFiMmB8IPXaeYNPfM7
+ C.iVFVvd8fes8XAQDQpNaiuLEU4m8kguG.akf5J7Ok0eBg9VBWBGecBhcXIb
+ 06kpIFr1ctzjbLWMkdVmnrS2utSNuT06GJ_mZfzYLxOqc_dzGACdcgiRgZK4
+ LvMXZ_A_ZYIpyuWDkUigI5bxM5H1nzpF_3zi7wB5GBJcKbe5UWb2ynLMAAM6
+ Kk9MbmghBdcIVn1TqpsDStkxCr7UJKj_p._Otyvr8Hb7_NNiEPOPYZlKVWrr
+ ETEWIg6DZlzchaDmw8pOQE9lMZLHQzoWlXx51E1GeJZb8HyTyVa3RdNAJG_1
+ rYvixaXUIHxf8Bjm4j.ZmTWulOEuneu7ChmW7aaVeWBVuac.fB6.gtBqKRg4
+ xdy66Wgo81SkHsIzGzAMOmZtKNB81liQQtM.eLKGRQjuGgfj1DuA1lLkoezu
+ Jjim71ML5tFCLcoOGfdpDScaVNz9XhXV3C2J3OPDEL.O3nHW.P.KK_dj1DES
+ WaR.OUl1pk.tEKxgH9Pcu6.x63.DxT.OY01zJzBbv5N.wziefsFEKERs7VR3
+ MTjvjSW8_L2WNJyR.zFTXA0Dfy__KYqslS7WUy5LP6ncQWxp.4nI6FaUq8ZT
+ jBbAJq5DZGT08uscY8Avyht1mOLdyR12E.OXbCSwL88H8rdQW.VQVLKFaFNZ
+ ElLHrR2bS0rPrIJRS884_FCWHT_kIoSlCPdd0eE1cgOz_m1FOMMz04uhe3eB
+ k.TeAILMBS1GEM3UBNUJG55248hLbIv01Vws1JWDOOlGYdGK7hVCLxYXpeU2
+ VxUEJFhNtHaSbKy2J2vbPzDekJUXH56qfMRxtd3xS5egL3K8xzpsyA--
+Received: from 209.85.222.200 (EHLO mail-qk1-f200.google.com)
+ by 10.200.77.175 with SMTPs
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256);
+ Mon, 08 Jun 2026 16:27:59 +0000
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-915756c1407so52803685a.1
+        for <victim@example.com>; Mon, 08 Jun 2026 09:27:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1780936078; x=1781540878; darn=yahoo.ro;
+        h=to:from:subject:date:message-id:sender:reply-to:mime-version:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=WjUzNPvK7M0AK9AMo47tqqrFhNEPji/pTFD5PmafydM=;
+        b=Uv0FetkKgy2t82HxsbQcQ4YGjb2HubfzAe6+XKt0b6CdnE0rAbRgSgoFaEiIUGvkKS
+         e1KoO39IcWZzJQAJd60rY6TkapfR3wNGMhN+7uHmsQaOY7OF0YwOK+bNfbdvsgxZm/99
+         Q0RkYArpzuaIgLhJGeqY35i3E3x/97rZTijij7Jemy3M6KqLxtCrkjMtnG5gD6zTXzdl
+         vY2MNK8nW31MTve712NOvMArHtt/3OxpIdKEYFvemhlGjycIEmKW1kpaqDnQflthRspx
+         Y9iEfjmrVnsqX16m3PnVMDXykrxdgp5F2a1Ta5yfiRyXW80IpbupaDHIcB4jYCJ55gUR
+         AfIw=DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=shxibz-com.20251104.gappssmtp.com; s=20251104; t=1780936078; x=1781540878; darn=yahoo.ro;
+        h=to:from:subject:date:message-id:sender:reply-to:mime-version:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=WjUzNPvK7M0AK9AMo47tqqrFhNEPji/pTFD5PmafydM=;
+        b=ONxWQlVPvtJDXFU/bpYQv4vI3SSonMtS/d7KmKro8otYvIKghHQY8Bk3LFh1+JemfE
+         3WvWd9otz/ZObwFEEqqyNaZvWCE9BV+0jTtTphx3NQWmqZai9uogyjWw6v6j7kMNkBSs
+         nh7nP3WJ77fsNXrV4PposbMISVp4CInFjcXXTYmxbA8jKRTKCOuZLRWdQ8ZOoOEnw6z3
+         qjD5/I6KfJQXdxUF3v6pcZd1wYYDYetyG2H3bLuq5e3LRF+uqJJT0ZJScZwfeQK7n3d1
+         MSgU568JssFEDuRrHk57ahFHu4zhlqi7ACnDwpQWSIZBXAvoXMK7ITmerB2nq3pYbEv3
+         WJ7g=X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780936078; x=1781540878;
+        h=to:from:subject:date:message-id:sender:reply-to:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=WjUzNPvK7M0AK9AMo47tqqrFhNEPji/pTFD5PmafydM=;
+        b=nMEYUyauRK+tSvyU9dYv2kSqmnkJH6GpIGFFc+aJPvmZvrrFbMku9cA+KK56VJUalE
+         xtzc2dUuTJWFqY42RWpo3QQJwVzrwlefzl6AQdPTtUi7Cid/MCokt9dcM6f0Hb5yoi9b
+         whGVk9/Ic0/UJn+CcwaZjie8otxvPs5g2D4tMmh52f9Z4UX9EMLyPqvjqbET1i3qfwNu
+         cwIIXuAB9YOyx3RlJVtPJbXCWzVU8NdADQzfbI6bERAZ33SM2+mVqRD4nqq7b8tzsMju
+         itITxVsjHa/oa6y/M5gNhJ+zA8i009iF8Tehj2IqmsRwbh8ZThiyJz89OnNysy2Ph+i9
+         u65g=X-Gm-Message-State: AOJu0YzldhwzbUSKrR3eC6AWa8YtVrJhH0njkUpU28geXdjH+Z1NLCmx
+	qIj9f8qSUZpeQL/rTlHcwLBH5YIJgtjBZaIzGdD0TQjYdIPmgkzHwnNlilww7wBtQckHqHiEge4
+	q4hTtprbAk3bNCo1M80gjRt8x9g4w85H05J75WcspMbFk2Ydxl9vVPf1z
+MIME-Version: 1.0
+X-Received: by 2002:a05:620a:4042:b0:915:7d6a:4f99 with SMTP id
+ af79cd13be357-915a9daece3mr1549428685a.5.1780936078452; Mon, 08 Jun 2026
+ 09:27:58 -0700 (PDT)
+Reply-To: Anandabaskaran Woodfin <anandabaskaranwoodfin@shxibz.com>
+Sender: Google Calendar <calendar-notification@google.com>
+Message-ID: <calendar-8ba69541-9bfe-4cd0-a39f-2505e3dc7021@google.com>
+Date: Mon, 08 Jun 2026 16:27:58 +0000
+Subject: Invitation: Renewal Confirmation: Three Years Subscription - Thank
+ You! @ Tue Jun 9, 2026 1:27am (GMT-4) (victim@example.com)
+From: Anandabaskaran Woodfin <anandabaskaranwoodfin@shxibz.com>
+To: victim@example.com
+Content-Type: multipart/mixed; boundary="00000000000052ef100653c07ece"
+Content-Length: 38448
+
+--00000000000052ef100653c07ece
+Content-Type: multipart/alternative; boundary="00000000000052ef0f0653c07ecc"
+
+--00000000000052ef0f0653c07ecc
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+UmVuZXdhbCBDb25maXJtYXRpb246IFRocmVlIFllYXJzIFN1YnNjcmlwdGlvbiAtIFRoYW5rIFlv
+dSENClR1ZXNkYXkgSnVuIDksIDIwMjYg4ouFIDE6MjdhbQ0KRWFzdGVybiBUaW1lIC0gTmV3IFlv
+cmsNCg0KDQoNClRyYW5zYWN0aW9uIERhdGU6IFR1ZXNkYXksIDA5IEp1bmUgMjAyNiAwMDoyNzoz
+MFRyYW5zYWN0aW9uIE51bWJlcjogIA0KUjhXQTZYV1o2RlVMTFlDU2VydmljZSBIb3RsaW5lIE51
+bWJlcjogKzEgKDgwOCkgNzIxLTMxOTZQbGFuIHN0YXR1cyByZW1haW5zICANCmN1cnJlbnQgd2l0
+aGluIHNlcnZpY2UgZG9jdW1lbnRhdGlvblNlcnZpY2UgTm90aWZpY2F0aW9uLEhhcHB5IHRvIGlu
+Zm9ybSAgDQp5b3UgdGhhdCB5b3VyICoqR2VlayBTcXVhZCoqIFRocmVlIFllYXJzIG1lbWJlcnNo
+aXAgaXMgbm93IHJlbmV3ZWQuIFdlICANCmFwcHJlY2lhdGUgeW91ciBjb250aW51ZWQgc3VwcG9y
+dC4qKlBheW1lbnQgQ29uZmlybWF0aW9uOioqLSAqKlJlbmV3YWwgIA0KRGF0ZToqKiBUdWVzZGF5
+LCAwOSBKdW5lIDIwMjYgMDA6Mjc6MzAtICoqQW1vdW50OioqICoqJDU5Mi4yNCBVU0QqKi0gKipJ
+dGVtICANClB1cmNoYXNlZDoqKiBTZXJ2aWNlIFJlcG9ydGluZyBIdWItICoqQWN0aXZhdGlvbiBL
+ZXk6KiogIA0KYTVlMTFjMGUtZWQ4NC00M2E1LTk3NTktNGEyZWFkMzA4ZWE3LSAqKkNsaWVudCBJ
+RDoqKiBLQkNYWTVHRVZZb3VyIHNlcnZpY2UgIA0KaXMgYWN0aXZlLkZvciBjYW5jZWxsYXRpb24s
+IHBsZWFzZSBjb250YWN0IHN1cHBvcnQgYXQmbmJzcDsgd2Ugd2lsbCBndWlkZSAgDQp5b3Ugc3Rl
+cCBieSBzdGVwLldpdGggYXBwcmVjaWF0aW9uIGFuZCBnb29kIHdpc2hlcyxHZWVrIFNxdWFkIElu
+Y1NlcnZpY2UgIA0KQ2FsbCBOdW1iZXI6ICsxICg4MDgpIDkwOS0xNjQ4QmlsbGluZyBoZWFkOiBS
+b2JlcnQgQXJub2xkQWRtaW5pc3RyYXRpdmUgIA0KRGVwYXJ0bWVudDogMjcyODMgTWlzc2lvbiBC
+bHZkLCBHcmVlbmFjcmVzIEZsIDMzNDYzLTIwNTMgVXNhDQoNCk9yZ2FuaXplcg0KQW5hbmRhYmFz
+a2FyYW4gV29vZGZpbg0KYW5hbmRhYmFza2FyYW53b29kZmluQHNoeGliei5jb20NCg0KUmVwbHkg
+Zm9yIGRhbmFuZHJlaWdyaWdvcmVzY3VAeWFob28ucm8gYW5kIHZpZXcgbW9yZSBkZXRhaWxzICAN
+Cmh0dHBzOi8vY2FsZW5kYXIuZ29vZ2xlLmNvbS9jYWxlbmRhci9ldmVudD9hY3Rpb249VklFVyZl
+aWQ9ZUZWSmRFMVJRblJ2VUdsSGNrSnpTRGxNUkV0U1VESnhlVk1nWkdGdVlXNWtjbVZwWjNKcFoy
+OXlaWE5qZFVCNVlXaHZieTV5YncmdG9rPU16SWpZVzVoYm1SaFltRnphMkZ5WVc1M2IyOWtabWx1
+UUhOb2VHbGllaTVqYjIxak5UTm1OVEZoTkdVeE5URmpNakprTjJNMU9EY3pNV0ZtWVRVeFl6VmpO
+REJtTlRneU9HWmkmY3R6PUFtZXJpY2ElMkZOZXdfWW9yayZobD1lbiZlcz0wDQpZb3VyIGF0dGVu
+ZGFuY2UgaXMgb3B0aW9uYWwuDQoNCn5+Ly9+fg0KSW52aXRhdGlvbiBmcm9tIEdvb2dsZSBDYWxl
+bmRhcjogaHR0cHM6Ly9jYWxlbmRhci5nb29nbGUuY29tL2NhbGVuZGFyLw0KDQpZb3UgYXJlIHJl
+Y2VpdmluZyB0aGlzIGVtYWlsIGJlY2F1c2UgeW91IGFyZSBhbiBhdHRlbmRlZSBvbiB0aGUgZXZl
+bnQuDQoNCkZvcndhcmRpbmcgdGhpcyBpbnZpdGF0aW9uIGNvdWxkIGFsbG93IGFueSByZWNpcGll
+bnQgdG8gc2VuZCBhIHJlc3BvbnNlIHRvICANCnRoZSBvcmdhbml6ZXIsIGJlIGFkZGVkIHRvIHRo
+ZSBndWVzdCBsaXN0LCBpbnZpdGUgb3RoZXJzIHJlZ2FyZGxlc3Mgb2YgIA0KdGhlaXIgb3duIGlu
+dml0YXRpb24gc3RhdHVzLCBvciBtb2RpZnkgeW91ciBSU1ZQLg0KDQpMZWFybiBtb3JlIGh0dHBz
+Oi8vc3VwcG9ydC5nb29nbGUuY29tL2NhbGVuZGFyL2Fuc3dlci8zNzEzNSNmb3J3YXJkaW5nDQo--00000000000052ef0f0653c07ecc
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html><html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office"><head><title></title><!--[if !mso]><meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge"><![endif]--><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8"><meta name=3D"viewport" content=3D"width=3Ddevice-width,initial-scale=3D1"><meta name=3D"color-scheme" content=3D"light dark"><meta name=3D"supported-color-schemes" content=3D"light dark">
+    <style>
+      body, html {
+        font-family: Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+
+      #outlook a {
+        padding: 0;
+      }
+
+      .ReadMsgBody {
+        width: 100%;
+      }
+
+      .ExternalClass {
+        width: 100%;
+      }
+
+      .ExternalClass * {
+        line-height: 100%;
+      }
+
+      table,
+      td {
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+      }
+
+      img {
+        border: 0;
+        height: auto;
+        line-height: 100%;
+        outline: none;
+        text-decoration: none;
+        -ms-interpolation-mode: bicubic;
+      }
+
+      p {
+        display: block;
+        margin: 13px 0;
+      }
+    </style>
+    <!--[if !mso]><!-->
+    <style>
+      @media only screen and (max-width:580px) {
+        @-ms-viewport {
+          width: 320px;
+        }
+
+        @viewport {
+          width: 320px;
+        }
+      }
+    </style>
+    <!--<![endif]-->
+    <!--[if mso]>
+          <xml>
+          <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+          </o:OfficeDocumentSettings>
+          </xml>
+          <![endif]-->
+    <!--[if lte mso 11]>
+          <style>
+            .outlook-group-fix { width:100% !important; }
+          </style>
+    <![endif]-->
+
+    <!--[if !mso]><!-- -->
+  <style>body, html {font-family:Roboto,Helvetica,Arial,sans-serif;}@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  src: url(//fonts.gstatic.com/s/roboto/v48/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbVmUiA8.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: normal;
+  src: url(//fonts.gstatic.com/s/roboto/v48/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWub2bVmUiA8.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  src: url(//fonts.gstatic.com/s/roboto/v48/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWuYjalmUiA8.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Material Icons Extended';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/materialiconsextended/v154/kJEjBvgX7BgnkSrUwT8UnLVc38YydejYY-oE_LvM.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Google Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/googlematerialicons/v144/Gw6kwdfw6UnXLJCcmafZyFRXb3BL9rvi0QZG3g.otf) format('opentype');
+}
+
+.google-material-icons {
+  font-family: 'Google Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+}
+@font-face {
+  font-family: 'Google Material Icons Filled';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/googlematerialiconsfilled/v118/WWXFlimHYg6HKI3TavMkbKdhBmDvgach8TVpeGsuueSZJH4.otf) format('opentype');
+}
+
+.google-material-icons-filled {
+  font-family: 'Google Material Icons Filled';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+}
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/googlesans/v14/4UaGrENHsxJlGDuGo1OIlL3Owps.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: url(//fonts.gstatic.com/s/googlesans/v14/4UabrENHsxJlGDuGo1OIlLU94YtzCwM.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url(//fonts.gstatic.com/s/googlesans/v14/4UabrENHsxJlGDuGo1OIlLV154tzCwM.ttf) format('truetype');
+}
+</style><!--<![endif]-->
+      <style>
+        .body-container {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+      </style>
+ =20
+      <style>
+        u+.body .body-container,
+        body[data-outlook-cycle] .body-container,
+        #MessageViewBody .body-container {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      </style>
+ =20
+    <style>
+      @media only screen and (min-width:580px) {
+        .column-per-37 {
+          width: 37% !important;
+          max-width: 37%;
+        }
+
+        .column-per-63 {
+          width: 63% !important;
+          max-width: 63%;
+        }
+      }
+    </style>
+ =20
+    <style>
+      .appointment-buttons th {
+        display: block;
+        clear: both;
+        float: left;
+        margin-top: 12px;
+      }
+
+      .appointment-buttons th a {
+        float: left;
+      }
+
+      #MessageViewBody .appointment-buttons th {
+       margin-top: 24px;
+      }
+    </style>
+ =20
+    <style>
+      @media only screen and (max-width:580px) {
+        table.full-width-mobile {
+          width: 100% !important;
+        }
+
+        td.full-width-mobile {
+          width: auto !important;
+        }
+      }
+    </style>
+    <style>
+      .main-container-inner,
+      .info-bar-inner {
+        padding: 12px 16px !important;
+      }
+
+      .main-column-table-ltr {
+        padding-right: 0 !important;
+      }
+
+      .main-column-table-rtl {
+        padding-left: 0 !important;
+      }
+
+      @media only screen and (min-width:580px) {
+        .main-container-inner {
+          padding: 24px 32px !important;
+        }
+
+        .info-bar-inner {
+          padding: 12px 32px !important;
+        }
+
+        .main-column-table-ltr {
+          padding-right: 32px !important;
+        }
+
+        .main-column-table-rtl {
+          padding-left: 32px !important;
+        }
+
+        .appointment-buttons th {
+          display: table-cell;
+          clear: none;
+        }
+      }
+
+      .primary-text {
+        color: #3c4043 !important;
+      }
+
+      .secondary-text,
+      .phone-number a {
+        color: #70757a !important;
+      }
+
+      .accent-text {
+        color: #1a73e8 !important;
+      }
+
+      .accent-text-dark {
+        color: #185abc !important;
+      }
+
+      .grey-button-text,
+      .attachment-chip a {
+        color: #5f6368 !important;
+      }
+
+      .primary-button {
+        background-color: #1a73e8 !important;
+      }
+
+      .primary-button-text {
+        color: #fff !important;
+      }
+
+      .underline-on-hover:hover {
+        text-decoration: underline !important;
+      }
+
+      .grey-infobar-text {
+        color: #202124 !important;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .primary-text:not([class^=3D"x_"]) {
+          color: #e8eaed !important;
+        }
+
+        .secondary-text:not([class^=3D"x_"]),
+        .phone-number:not([class^=3D"x_"]) a {
+          color: #9aa0a6 !important;
+        }
+
+        .grey-button-text:not([class^=3D"x_"]),
+        .attachment-chip:not([class^=3D"x_"]) a {
+          color: #bdc1c6 !important;
+        }
+
+        .accent-text:not([class^=3D"x_"]),
+        .hairline-button-text:not([class^=3D"x_"]) {
+          color: #8ab4f8 !important;
+        }
+
+        .primary-button:not([class^=3D"x_"]) {
+          background-color: #8ab4f8 !important;
+        }
+
+        .primary-button-text:not([class^=3D"x_"]) {
+          color: #202124 !important;
+        }
+      }
+    </style>
+    <style>
+      @media (prefers-color-scheme: dark) {
+        .cse-banner:not([class^=3D"x_"]) {
+          background-color: #3c4043 !important; /* Google Grey 800 */
+        }
+
+        .encryption-icon:not([class^=3D"x_"]) {
+          /* WARNING: This causes the whole style tag to get stripped in Gmail. */
+          background-image: url('https://fonts.gstatic.com/s/i/googlematerialiconsfilled/encrypted/v3/gm_grey200-24dp/2x/gm_filled_encrypted_gm_grey200_24dp.png') !important;
+        }
+      }
+    </style>
+    <!--[if !mso]><!-->
+    <style>
+      .prevent-link a {
+        color: inherit !important;
+        text-decoration: none !important;
+        font-size: inherit !important;
+        font-family: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+      }
+    </style>
+    <!--<![endif]-->
+
+    <!--[if mso | IE]>
+      <style>
+        .main-container-inner {
+          padding: 24px 32px !important;
+        }
+
+        .info-bar-inner {
+          padding: 12px 32px !important;
+        }
+
+        .cse-banner .encryption-icon {
+          /* We use the IE workaround instead. */
+          background-image: none !important;
+        }
+
+        .cse-banner .encryption-icon .ms-fallback {
+          display: block !important;
+        }
+
+        /* NB: Some MS clients ignore dark-scheme styling and apply their own, so there's nothing we can do to help there. */
+        @media (prefers-color-scheme: dark) {
+          .cse-banner:not([class^=3D"x_"]) .encryption-icon .ms-fallback {
+            display: none !important;
+          }
+
+          .cse-banner:not([class^=3D"x_"]) .encryption-icon .ms-fallback-dark {
+            display: block !important;
+          }
+        }
+      </style>
+    <![endif]-->
+  </head><body class=3D"body"><span itemscope itemtype=3D"http://schema.org/InformAction"><span style=3D"display:none" itemprop=3D"about" itemscope itemtype=3D"http://schema.org/Person"><meta itemprop=3D"description" content=3D"Invitation from Anandabaskaran Woodfin"/></span><span itemprop=3D"object" itemscope itemtype=3D"http://schema.org/Event"><meta itemprop=3D"eventStatus" content=3D"http://schema.org/EventScheduled"/><span itemprop=3D"publisher" itemscope itemtype=3D"http://schema.org/Organization"><meta itemprop=3D"name" content=3D"Google Calendar"/></span><meta itemprop=3D"eventId/googleCalendar" content=3D"xUItMQBtoPiGrBsH9LDKRP2qyS"/><span style=3D"display: none; font-size: 1px; color: #fff; line-height: 1px; height: 0; max-height: 0; width: 0; max-width: 0; opacity: 0; overflow: hidden;" itemprop=3D"name">Renewal Confirmation: Three Years Subscription - Thank You!</span><meta itemprop=3D"url" content=3D"https://calendar.google.com/calendar/event?action=3DVIEW&amp;eid=3DeFVJdE1RQnRvUGlHckJzSDlMREtSUDJxeVMgZGFuYW5kcmVpZ3JpZ29yZXNjdUB5YWhvby5ybw&amp;tok=3DMzIjYW5hbmRhYmFza2FyYW53b29kZmluQHNoeGliei5jb21jNTNmNTFhNGUxNTFjMjJkN2M1ODczMWFmYTUxYzVjNDBmNTgyOGZi&amp;ctz=3DAmerica%2FNew_York&amp;hl=3Den&amp;es=3D0"/><span aria-hidden=3D"true"><time itemprop=3D"startDate" datetime=3D"20260609T052730Z"></time><time itemprop=3D"endDate" datetime=3D"20260609T052730Z"></time></span><div style=3D"display: none; font-size: 1px; color: #fff; line-height: 1px; height: 0; max-height: 0; width: 0; max-width: 0; opacity: 0; overflow: hidden;">Transaction Date: Tuesday, 09 June 2026 00:27:30Transaction Number: R8WA6XWZ6FULLYCService Hotline Number: +1 (808) 721-3196Plan status remains current within service documentationService Notification</div><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" align=3D"center" style=3D"width:100%;" class=3D"body-container"><tbody><tr><td style=3D"" class=3D"" align=3D"left"><!--[if mso | IE]><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"><tr><td height=3D"16" style=3D"height:16px;"><![endif]--><div style=3D"height:16px;" aria-hidden=3D"true"> &nbsp; </div><!--[if mso | IE]></td></tr></table><![endif]--><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" align=3D"center" style=3D"width:100%;" class=3D""><tbody><tr><td style=3D"border: solid 1px #dadce0; border-radius: 8px; direction: rtl; font-size: 0; padding: 24px 32px; text-align: left; vertical-align: top;" class=3D"main-container-inner"><!--[if mso | IE]><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"><tr><![endif]--><div class=3D"" style=3D"font-size: 13px; text-align: left; direction: ltr; display: inline-block; vertical-align: top; width: 100%;overflow: hidden; word-wrap: break-word;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%" class=3D"main-column-table-ltr" style=3D"padding-right: 32px; padding-left: 0;;table-layout: fixed;"><tbody><tr><td class=3D"main-column-td" style=3D"padding:0; vertical-align:top;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%" style=3D"table-layout: fixed;"><tr><td style=3D"font-size: 0; padding: 0; text-align: left; word-break: break-word;;padding-bottom:24px;"><div style=3D"font-family: Roboto, sans-serif;font-style: normal; font-weight: 400; font-size: 14px; line-height: 20px; letter-spacing: 0.2px;color: #3c4043; text-decoration: none;" class=3D"primary-text" role=3D"presentation"><span><p>Transaction Date: Tuesday, 09 June 2026 00:27:30<br>Transaction Number: R8WA6XWZ6FULLYC<br><strong>Service Hotline Number: +1 (808) 721-3196</strong><br><br>Plan status remains current within service documentation<br><br>Service Notification,<br><br>Happy to inform you that your **Geek Squad** Three Years membership is now renewed. We appreciate your continued support.<br><br><strong>**Payment Confirmation:**</strong><br>- **Renewal Date:** Tuesday, 09 June 2026 00:27:30<br>- **Amount:** **$592.24 USD**<br>- **Item Purchased:** Service Reporting Hub<br>- **Activation Key:** a5e11c0e-ed84-43a5-9759-4a2ead308ea7<br>- **Client ID:** KBCXY5GEV<br><br>Your service is active.<br><br>For cancellation, please contact support at=C2=A0 we will guide you step by step.<br><br>With appreciation and good wishes,<br>Geek Squad Inc<br><strong>Service Call Number: +1 (808) 909-1648</strong><br>Billing head: Robert Arnold<br>Administrative Department: 27283 Mission Blvd, Greenacres Fl 33463-2053 Usa</p></span><meta itemprop=3D"description" content=3D"Transaction Date: Tuesday, 09 June 2026 00:27:30Transaction Number: R8WA6XWZ6FULLYCService Hotline Number: +1 (808) 721-3196Plan status remains current within service documentationService Notification,Happy to inform you that your **Geek Squad** Three Years membership is now renewed. We appreciate your continued support.**Payment Confirmation:**- **Renewal Date:** Tuesday, 09 June 2026 00:27:30- **Amount:** **$592.24 USD**- **Item Purchased:** Service Reporting Hub- **Activation Key:** a5e11c0e-ed84-43a5-9759-4a2ead308ea7- **Client ID:** KBCXY5GEVYour service is active.For cancellation, please contact support at&amp;nbsp; we will guide you step by step.With appreciation and good wishes,Geek Squad IncService Call Number: +1 (808) 909-1648Billing head: Robert ArnoldAdministrative Department: 27283 Mission Blvd, Greenacres Fl 33463-2053 Usa"/></div></td></tr><tr><td style=3D"font-size: 0; padding: 0; text-align: left; word-break: break-word;;padding-bottom:24px;"><div style=3D"font-family: Roboto, sans-serif;font-style: normal; font-weight: 400; font-size: 14px; line-height: 20px; letter-spacing: 0.2px;color: #3c4043; text-decoration: none;" class=3D"primary-text" role=3D"presentation"><span aria-hidden=3D"true"><time itemprop=3D"startDate" datetime=3D"20260609T052730Z"></time><time itemprop=3D"endDate" datetime=3D"20260609T052730Z"></time></span><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"padding-bottom: 4px;"><tr><td><h2 class=3D"primary-text" style=3D"font-size: 14px;color: #3c4043; text-decoration: none;font-weight: 700;-webkit-font-smoothing: antialiased;margin: 0; padding: 0;">When</h2></td></tr></table><span>Tuesday Jun 9, 2026 =E2=8B=85 1:27am (Eastern Time - New York)</span></div></td></tr><tr><td style=3D"font-size: 0; padding: 0; text-align: left; word-break: break-word;;padding-bottom:24px;"><div style=3D"font-family: Roboto, sans-serif;font-style: normal; font-weight: 400; font-size: 14px; line-height: 20px; letter-spacing: 0.2px;color: #3c4043; text-decoration: none;" class=3D"primary-text" role=3D"presentation"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"padding-bottom: 4px;"><tr><td><h2 class=3D"primary-text" style=3D"font-size: 14px;color: #3c4043; text-decoration: none;font-weight: 700;-webkit-font-smoothing: antialiased;margin: 0; padding: 0;">Organizer</h2></td></tr></table><div style=3D"color: #3c4042;"><span class=3D"notranslate"><a class=3D"primary-text underline-on-hover" style=3D"display: inline-block;;color: #3c4043; text-decoration: none;" href=3D"mailto:anandabaskaranwoodfin@shxibz.com">Anandabaskaran Woodfin</a></span><span itemprop=3D"organizer" itemscope itemtype=3D"http://schema.org/Person"><meta itemprop=3D"name" content=3D"Anandabaskaran Woodfin"/><meta itemprop=3D"email" content=3D"anandabaskaranwoodfin@shxibz.com"/></span></div><div style=3D"color: #707579;"><a class=3D"secondary-text underline-on-hover" style=3D"display: inline-block;;color: #70757a; text-decoration: none;" href=3D"mailto:anandabaskaranwoodfin@shxibz.com">anandabaskaranwoodfin@shxibz.com</a></div></div></td></tr><tr><td style=3D"font-size: 0; padding: 0; text-align: left; word-break: break-word;;padding-bottom:24px;"><div style=3D"font-family: Roboto, sans-serif;font-style: normal; font-weight: 400; font-size: 14px; line-height: 20px; letter-spacing: 0.2px;color: #3c4043; text-decoration: none;" class=3D"primary-text" role=3D"presentation"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"padding-bottom: 4px;"><tr><td><h2 class=3D"primary-text" style=3D"font-size: 14px;color: #3c4043; text-decoration: none;font-weight: 700;-webkit-font-smoothing: antialiased;margin: 0; padding: 0;">Guests</h2></td></tr></table>(Guest list has been hidden at organizer's request)</div></td></tr><tr><td style=3D"font-size: 0; padding: 0; text-align: left; word-break: break-word;;padding-bottom:0px;"><div style=3D"color: #3c4043; text-decoration: none;;font-family: Roboto, sans-serif;font-size: 14px; line-height: 20px; mso-line-height-rule: exactly; text-align: left;" class=3D"primary-text"><div><span style=3D"font-weight: 700;-webkit-font-smoothing: antialiased;">Reply</span><span class=3D"secondary-text" style=3D"color: #70757a; text-decoration: none;"> for <a class=3D"secondary-text underline-on-hover" style=3D"display: inline-block;;color: #70757a; text-decoration: none;" href=3D"mailto:victim@example.com">victim@example.com</a></span></div></div></td></tr><tr><td style=3D"font-size: 0; padding: 0; text-align: left; word-break: break-word;;padding-bottom:16px;"><div style=3D"font-family: Roboto, sans-serif;font-size: 14px; line-height: 20px; mso-line-height-rule: exactly; text-align: left;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"border-collapse: separate;"><tr><td style=3D"padding-top: 8px; padding-left: 0; padding-right: 12px;"><!-- RSVP buttons --><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"border: solid 1px #dadce0; border-radius: 16px; border-collapse: separate;font-family: &#39;Google Sans&#39;, Roboto, sans-serif;;display: inline-block;;margin-right: 12px; margin-left: 0;"><tr><td align=3D"center" vertical-align=3D"middle" role=3D"presentation"><span itemprop=3D"potentialaction" itemscope itemtype=3D"http://schema.org/RsvpAction"><meta itemprop=3D"attendance" content=3D"http://schema.org/RsvpAttendance/Yes"/><span itemprop=3D"handler" itemscope itemtype=3D"http://schema.org/HttpActionHandler"><link itemprop=3D"method" href=3D"http://schema.org/HttpRequestMethod/GET"/><span style=3D"color: #5f6367;"><a href=3D"https://calendar.google.com/calendar/event?action=3DRESPOND&amp;eid=3DeFVJdE1RQnRvUGlHckJzSDlMREtSUDJxeVMgZGFuYW5kcmVpZ3JpZ29yZXNjdUB5YWhvby5ybw&amp;rst=3D1&amp;tok=3DMzIjYW5hbmRhYmFza2FyYW53b29kZmluQHNoeGliei5jb21jNTNmNTFhNGUxNTFjMjJkN2M1ODczMWFmYTUxYzVjNDBmNTgyOGZi&amp;ctz=3DAmerica%2FNew_York&amp;hl=3Den&amp;es=3D0" style=3D"font-weight: 400;font-family: &#39;Google Sans&#39;, Roboto, sans-serif;color: #5f6368; font-size: 14px; line-height: 120%; mso-line-height-rule: exactly; margin: 0; text-decoration: none; text-transform: none;" class=3D"grey-button-text" itemprop=3D"url" target=3D"_blank"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"><tr><td align=3D"center" role=3D"presentation" valign=3D"middle" style=3D"padding: 6px 0; padding-left: 16px; padding-right: 12px; white-space: nowrap;"><!--[if mso]><a href=3D"https://calendar.google.com/calendar/event?action=3DRESPOND&amp;eid=3DeFVJdE1RQnRvUGlHckJzSDlMREtSUDJxeVMgZGFuYW5kcmVpZ3JpZ29yZXNjdUB5YWhvby5ybw&amp;rst=3D1&amp;tok=3DMzIjYW5hbmRhYmFza2FyYW53b29kZmluQHNoeGliei5jb21jNTNmNTFhNGUxNTFjMjJkN2M1ODczMWFmYTUxYzVjNDBmNTgyOGZi&amp;ctz=3DAmerica%2FNew_York&amp;hl=3Den&amp;es=3D0" class=3D"grey-button-text" itemprop=3D"url" target=3D"_blank"><![endif]--><span class=3D"grey-button-text" style=3D"font-weight: 400;font-family: &#39;Google Sans&#39;, Roboto, sans-serif;color: #5f6368; font-size: 14px; line-height: 120%; mso-line-height-rule: exactly; margin: 0; text-decoration: none; text-transform: none;">Yes</span><!--[if mso]></a><![endif]--></td></tr></table></a></span></span></span></td><td align=3D"center" vertical-align=3D"middle" role=3D"presentation" style=3D"border-left: solid 1px #dadce0; border-right: solid 1px #dadce0;"><span itemprop=3D"potentialaction" itemscope itemtype=3D"http://schema.org/RsvpAction"><meta itemprop=3D"attendance" content=3D"http://schema.org/RsvpAttendance/No"/><span itemprop=3D"handler" itemscope itemtype=3D"http://schema.org/HttpActionHandler"><link itemprop=3D"method" href=3D"http://schema.org/HttpRequestMethod/GET"/><span style=3D"color: #5f6367;"><a href=3D"https://calendar.google.com/calendar/event?action=3DRESPOND&amp;eid=3DeFVJdE1RQnRvUGlHckJzSDlMREtSUDJxeVMgZGFuYW5kcmVpZ3JpZ29yZXNjdUB5YWhvby5ybw&amp;rst=3D2&amp;tok=3DMzIjYW5hbmRhYmFza2FyYW53b29kZmluQHNoeGliei5jb21jNTNmNTFhNGUxNTFjMjJkN2M1ODczMWFmYTUxYzVjNDBmNTgyOGZi&amp;ctz=3DAmerica%2FNew_York&amp;hl=3Den&amp;es=3D0" style=3D"font-weight: 400;font-family: &#39;Google Sans&#39;, Roboto, sans-serif;color: #5f6368; font-size: 14px; line-height: 120%; mso-line-height-rule: exactly; margin: 0; text-decoration: none; text-transform: none;" class=3D"grey-button-text" itemprop=3D"url" target=3D"_blank"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"><tr><td align=3D"center" role=3D"presentation" valign=3D"middle" style=3D"padding: 6px 12px; white-space: nowrap;"><!--[if mso]><a href=3D"https://calendar.google.com/calendar/event?action=3DRESPOND&amp;eid=3DeFVJdE1RQnRvUGlHckJzSDlMREtSUDJxeVMgZGFuYW5kcmVpZ3JpZ29yZXNjdUB5YWhvby5ybw&amp;rst=3D2&amp;tok=3DMzIjYW5hbmRhYmFza2FyYW53b29kZmluQHNoeGliei5jb21jNTNmNTFhNGUxNTFjMjJkN2M1ODczMWFmYTUxYzVjNDBmNTgyOGZi&amp;ctz=3DAmerica%2FNew_York&amp;hl=3Den&amp;es=3D0" class=3D"grey-button-text" itemprop=3D"url" target=3D"_blank"><![endif]--><span class=3D"grey-button-text" style=3D"font-weight: 400;font-family: &#39;Google Sans&#39;, Roboto, sans-serif;color: #5f6368; font-size: 14px; line-height: 120%; mso-line-height-rule: exactly; margin: 0; text-decoration: none; text-transform: none;">No</span><!--[if mso]></a><![endif]--></td></tr></table></a></span></span></span></td><td align=3D"center" vertical-align=3D"middle" role=3D"presentation"><span itemprop=3D"potentialaction" itemscope itemtype=3D"http://schema.org/RsvpAction"><meta itemprop=3D"attendance" content=3D"http://schema.org/RsvpAttendance/Maybe"/><span itemprop=3D"handler" itemscope itemtype=3D"http://schema.org/HttpActionHandler"><link itemprop=3D"method" href=3D"http://schema.org/HttpRequestMethod/GET"/><span style=3D"color: #5f6367;"><a href=3D"https://calendar.google.com/calendar/event?action=3DRESPOND&amp;eid=3DeFVJdE1RQnRvUGlHckJzSDlMREtSUDJxeVMgZGFuYW5kcmVpZ3JpZ29yZXNjdUB5YWhvby5ybw&amp;rst=3D3&amp;tok=3DMzIjYW5hbmRhYmFza2FyYW53b29kZmluQHNoeGliei5jb21jNTNmNTFhNGUxNTFjMjJkN2M1ODczMWFmYTUxYzVjNDBmNTgyOGZi&amp;ctz=3DAmerica%2FNew_York&amp;hl=3Den&amp;es=3D0" style=3D"font-weight: 400;font-family: &#39;Google Sans&#39;, Roboto, sans-serif;color: #5f6368; font-size: 14px; line-height: 120%; mso-line-height-rule: exactly; margin: 0; text-decoration: none; text-transform: none;" class=3D"grey-button-text" itemprop=3D"url" target=3D"_blank"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"><tr><td align=3D"center" role=3D"presentation" valign=3D"middle" style=3D"padding: 6px 0; padding-left: 12px; padding-right: 16px; white-space: nowrap;"><!--[if mso]><a href=3D"https://calendar.google.com/calendar/event?action=3DRESPOND&amp;eid=3DeFVJdE1RQnRvUGlHckJzSDlMREtSUDJxeVMgZGFuYW5kcmVpZ3JpZ29yZXNjdUB5YWhvby5ybw&amp;rst=3D3&amp;tok=3DMzIjYW5hbmRhYmFza2FyYW53b29kZmluQHNoeGliei5jb21jNTNmNTFhNGUxNTFjMjJkN2M1ODczMWFmYTUxYzVjNDBmNTgyOGZi&amp;ctz=3DAmerica%2FNew_York&amp;hl=3Den&amp;es=3D0" class=3D"grey-button-text" itemprop=3D"url" target=3D"_blank"><![endif]--><span class=3D"grey-button-text" style=3D"font-weight: 400;font-family: &#39;Google Sans&#39;, Roboto, sans-serif;color: #5f6368; font-size: 14px; line-height: 120%; mso-line-height-rule: exactly; margin: 0; text-decoration: none; text-transform: none;">Maybe</span><!--[if mso]></a><![endif]--></td></tr></table></a></span></span></span></td></tr></table><!-- More options --><a href=3D"https://calendar.google.com/calendar/event?action=3DVIEW&amp;eid=3DeFVJdE1RQnRvUGlHckJzSDlMREtSUDJxeVMgZGFuYW5kcmVpZ3JpZ29yZXNjdUB5YWhvby5ybw&amp;tok=3DMzIjYW5hbmRhYmFza2FyYW53b29kZmluQHNoeGliei5jb21jNTNmNTFhNGUxNTFjMjJkN2M1ODczMWFmYTUxYzVjNDBmNTgyOGZi&amp;ctz=3DAmerica%2FNew_York&amp;hl=3Den&amp;es=3D0" style=3D"display: inline-block;;font-weight: 400;font-family: &#39;Google Sans&#39;, Roboto, sans-serif;color: #5f6368; font-size: 14px; line-height: 120%; mso-line-height-rule: exactly; margin: 0; text-decoration: none; text-transform: none;" class=3D"grey-button-text" target=3D"_blank"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"border: solid 1px #dadce0; border-radius: 16px; border-collapse: separate;font-family: &#39;Google Sans&#39;, Roboto, sans-serif;"><tr><td align=3D"center" vertical-align=3D"middle" role=3D"presentation" style=3D"padding: 6px 0; padding-left: 16px; padding-right: 12px; white-space: nowrap;;color: #5f6367;"><!--[if mso]><a href=3D"https://calendar.google.com/calendar/event?action=3DVIEW&amp;eid=3DeFVJdE1RQnRvUGlHckJzSDlMREtSUDJxeVMgZGFuYW5kcmVpZ3JpZ29yZXNjdUB5YWhvby5ybw&amp;tok=3DMzIjYW5hbmRhYmFza2FyYW53b29kZmluQHNoeGliei5jb21jNTNmNTFhNGUxNTFjMjJkN2M1ODczMWFmYTUxYzVjNDBmNTgyOGZi&amp;ctz=3DAmerica%2FNew_York&amp;hl=3Den&amp;es=3D0" class=3D"grey-button-text" target=3D"_blank"><![endif]--><span class=3D"grey-button-text" style=3D"font-weight: 400;font-family: &#39;Google Sans&#39;, Roboto, sans-serif;color: #5f6368; font-size: 14px; line-height: 120%; mso-line-height-rule: exactly; margin: 0; text-decoration: none; text-transform: none;">More options</span><!--[if mso]></a><![endif]--></td></tr></table></a></td></tr></table></div></td></tr></table></td></tr></tbody></table></div><!--[if mso | IE]></tr></table><![endif]--></td></tr></tbody></table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" align=3D"center" style=3D"width:100%;" class=3D""><tbody><tr><td style=3D"font-size: 0; padding: 0; text-align: left; word-break: break-word;;padding:4px 12px;" class=3D"" align=3D"left"><div class=3D"secondary-text" style=3D"color: #70757a; text-decoration: none;font-family: Roboto, sans-serif;font-size: 12px; line-height: 16px; mso-line-height-rule: exactly; text-align: left;"><p>Invitation from <a href=3D"https://calendar.google.com/calendar/" class=3D"accent-text underline-on-hover" style=3D"font-family: Roboto, sans-serif;font-size: 12px; line-height: 16px; mso-line-height-rule: exactly;;color: #1a73e8; text-decoration: none;" target=3D"_blank">Google Calendar</a></p><p>You are receiving this email because you are an attendee on the event.</p><p>Forwarding this invitation could allow any recipient to send a response to the organizer, be added to the guest list, invite others regardless of their own invitation status, or modify your RSVP. <a class=3D"accent-text underline-on-hover" style=3D"font-family: Roboto, sans-serif;font-size: 12px; line-height: 16px; mso-line-height-rule: exactly;;color: #1a73e8; text-decoration: none;" href=3D"https://support.google.com/calendar/answer/37135#forwarding">Learn more</a></p></div></td></tr></tbody></table></td></tr></tbody></table></span></span></body></html>
+--00000000000052ef0f0653c07ecc
+Content-Type: text/calendar; charset="UTF-8"; method=REQUEST
+Content-Transfer-Encoding: 7bit
+
+BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+BEGIN:VTIMEZONE
+TZID:America/New_York
+X-LIC-LOCATION:America/New_York
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0400
+TZNAME:EDT
+DTSTART:19700308T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0500
+TZNAME:EST
+DTSTART:19701101T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;TZID=America/New_York:20260609T012730
+DTSTAMP:20260608T162752Z
+ORGANIZER;CN=Anandabaskaran Woodfin:mailto:anandabaskaranwoodfin@shxibz.com
+UID:xUItMQBtoPiGrBsH9LDKRP2qyS@google.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP TRUE;CN=victim@example.com;X-NUM-GUESTS=0:mailto:victim@example.com
+X-MICROSOFT-CDO-OWNERAPPTID:-1893147730
+CREATED:20260608T162735Z
+DESCRIPTION:<p>Transaction Date: Tuesday\, 09 June 2026 00:27:30<br />Trans
+ action Number: R8WA6XWZ6FULLYC<br /><strong>Service Hotline Number: +1 (808
+ ) 721-3196</strong><br /><br />Plan status remains current within service d
+ ocumentation<br /><br />Service Notification\,<br /><br />Happy to inform y
+ ou that your **Geek Squad** Three Years membership is now renewed. We appre
+ ciate your continued support.<br /><br /><strong>**Payment Confirmation:**<
+ /strong><br />- **Renewal Date:** Tuesday\, 09 June 2026 00:27:30<br />- **
+ Amount:** **$592.24 USD**<br />- **Item Purchased:** Service Reporting Hub<
+ br />- **Activation Key:** a5e11c0e-ed84-43a5-9759-4a2ead308ea7<br />- **Cl
+ ient ID:** KBCXY5GEV<br /><br />Your service is active.<br /><br />For canc
+ ellation\, please contact support at&nbsp\; we will guide you step by step.
+ <br /><br />With appreciation and good wishes\,<br />Geek Squad Inc<br /><s
+ trong>Service Call Number: +1 (808) 909-1648</strong><br />Billing head: Ro
+ bert Arnold<br />Administrative Department: 27283 Mission Blvd\, Greenacres
+  Fl 33463-2053 Usa</p>
+LAST-MODIFIED:20260608T162739Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Renewal Confirmation: Three Years Subscription - Thank You!
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:This is an event reminder
+TRIGGER:-P0DT0H10M0S
+END:VALARM
+END:VEVENT
+END:VCALENDAR
+
+--00000000000052ef0f0653c07ecc--
+--00000000000052ef100653c07ece
+Content-Type: application/ics; name="invite.ics"
+Content-Disposition: attachment; filename="invite.ics"
+Content-Transfer-Encoding: base64
+
+QkVHSU46VkNBTEVOREFSDQpQUk9ESUQ6LS8vR29vZ2xlIEluYy8vR29vZ2xlIENhbGVuZGFyIDcw
+LjkwNTQvL0VODQpWRVJTSU9OOjIuMA0KQ0FMU0NBTEU6R1JFR09SSUFODQpNRVRIT0Q6UkVRVUVT
+VA0KQkVHSU46VlRJTUVaT05FDQpUWklEOkFtZXJpY2EvTmV3X1lvcmsNClgtTElDLUxPQ0FUSU9O
+OkFtZXJpY2EvTmV3X1lvcmsNCkJFR0lOOkRBWUxJR0hUDQpUWk9GRlNFVEZST006LTA1MDANClRa
+T0ZGU0VUVE86LTA0MDANClRaTkFNRTpFRFQNCkRUU1RBUlQ6MTk3MDAzMDhUMDIwMDAwDQpSUlVM
+RTpGUkVRPVlFQVJMWTtCWU1PTlRIPTM7QllEQVk9MlNVDQpFTkQ6REFZTElHSFQNCkJFR0lOOlNU
+QU5EQVJEDQpUWk9GRlNFVEZST006LTA0MDANClRaT0ZGU0VUVE86LTA1MDANClRaTkFNRTpFU1QN
+CkRUU1RBUlQ6MTk3MDExMDFUMDIwMDAwDQpSUlVMRTpGUkVRPVlFQVJMWTtCWU1PTlRIPTExO0JZ
+REFZPTFTVQ0KRU5EOlNUQU5EQVJEDQpFTkQ6VlRJTUVaT05FDQpCRUdJTjpWRVZFTlQNCkRUU1RB
+UlQ7VFpJRD1BbWVyaWNhL05ld19Zb3JrOjIwMjYwNjA5VDAxMjczMA0KRFRTVEFNUDoyMDI2MDYw
+OFQxNjI3NTJaDQpPUkdBTklaRVI7Q049QW5hbmRhYmFza2FyYW4gV29vZGZpbjptYWlsdG86YW5h
+bmRhYmFza2FyYW53b29kZmluQHNoeGliei5jb20NClVJRDp4VUl0TVFCdG9QaUdyQnNIOUxES1JQ
+MnF5U0Bnb29nbGUuY29tDQpBVFRFTkRFRTtDVVRZUEU9SU5ESVZJRFVBTDtST0xFPVJFUS1QQVJU
+SUNJUEFOVDtQQVJUU1RBVD1ORUVEUy1BQ1RJT047UlNWUD0NCiBUUlVFO0NOPWRhbmFuZHJlaWdy
+aWdvcmVzY3VAeWFob28ucm87WC1OVU0tR1VFU1RTPTA6bWFpbHRvOmRhbmFuZHJlaWdyaWdvcmUN
+CiBzY3VAeWFob28ucm8NClgtTUlDUk9TT0ZULUNETy1PV05FUkFQUFRJRDotMTg5MzE0NzczMA0K
+Q1JFQVRFRDoyMDI2MDYwOFQxNjI3MzVaDQpERVNDUklQVElPTjo8cD5UcmFuc2FjdGlvbiBEYXRl
+OiBUdWVzZGF5XCwgMDkgSnVuZSAyMDI2IDAwOjI3OjMwPGJyIC8+VHJhbnMNCiBhY3Rpb24gTnVt
+YmVyOiBSOFdBNlhXWjZGVUxMWUM8YnIgLz48c3Ryb25nPlNlcnZpY2UgSG90bGluZSBOdW1iZXI6
+ICsxICg4MDgNCiApIDcyMS0zMTk2PC9zdHJvbmc+PGJyIC8+PGJyIC8+UGxhbiBzdGF0dXMgcmVt
+YWlucyBjdXJyZW50IHdpdGhpbiBzZXJ2aWNlIGQNCiBvY3VtZW50YXRpb248YnIgLz48YnIgLz5T
+ZXJ2aWNlIE5vdGlmaWNhdGlvblwsPGJyIC8+PGJyIC8+SGFwcHkgdG8gaW5mb3JtIHkNCiBvdSB0
+aGF0IHlvdXIgKipHZWVrIFNxdWFkKiogVGhyZWUgWWVhcnMgbWVtYmVyc2hpcCBpcyBub3cgcmVu
+ZXdlZC4gV2UgYXBwcmUNCiBjaWF0ZSB5b3VyIGNvbnRpbnVlZCBzdXBwb3J0LjxiciAvPjxiciAv
+PjxzdHJvbmc+KipQYXltZW50IENvbmZpcm1hdGlvbjoqKjwNCiAvc3Ryb25nPjxiciAvPi0gKipS
+ZW5ld2FsIERhdGU6KiogVHVlc2RheVwsIDA5IEp1bmUgMjAyNiAwMDoyNzozMDxiciAvPi0gKioN
+CiBBbW91bnQ6KiogKiokNTkyLjI0IFVTRCoqPGJyIC8+LSAqKkl0ZW0gUHVyY2hhc2VkOioqIFNl
+cnZpY2UgUmVwb3J0aW5nIEh1YjwNCiBiciAvPi0gKipBY3RpdmF0aW9uIEtleToqKiBhNWUxMWMw
+ZS1lZDg0LTQzYTUtOTc1OS00YTJlYWQzMDhlYTc8YnIgLz4tICoqQ2wNCiBpZW50IElEOioqIEtC
+Q1hZNUdFVjxiciAvPjxiciAvPllvdXIgc2VydmljZSBpcyBhY3RpdmUuPGJyIC8+PGJyIC8+Rm9y
+IGNhbmMNCiBlbGxhdGlvblwsIHBsZWFzZSBjb250YWN0IHN1cHBvcnQgYXQmbmJzcFw7IHdlIHdp
+bGwgZ3VpZGUgeW91IHN0ZXAgYnkgc3RlcC4NCiA8YnIgLz48YnIgLz5XaXRoIGFwcHJlY2lhdGlv
+biBhbmQgZ29vZCB3aXNoZXNcLDxiciAvPkdlZWsgU3F1YWQgSW5jPGJyIC8+PHMNCiB0cm9uZz5T
+ZXJ2aWNlIENhbGwgTnVtYmVyOiArMSAoODA4KSA5MDktMTY0ODwvc3Ryb25nPjxiciAvPkJpbGxp
+bmcgaGVhZDogUm8NCiBiZXJ0IEFybm9sZDxiciAvPkFkbWluaXN0cmF0aXZlIERlcGFydG1lbnQ6
+IDI3MjgzIE1pc3Npb24gQmx2ZFwsIEdyZWVuYWNyZXMNCiAgRmwgMzM0NjMtMjA1MyBVc2E8L3A+
+DQpMQVNULU1PRElGSUVEOjIwMjYwNjA4VDE2MjczOVoNCkxPQ0FUSU9OOg0KU0VRVUVOQ0U6MA0K
+U1RBVFVTOkNPTkZJUk1FRA0KU1VNTUFSWTpSZW5ld2FsIENvbmZpcm1hdGlvbjogVGhyZWUgWWVh
+cnMgU3Vic2NyaXB0aW9uIC0gVGhhbmsgWW91IQ0KVFJBTlNQOk9QQVFVRQ0KQkVHSU46VkFMQVJN
+DQpBQ1RJT046RElTUExBWQ0KREVTQ1JJUFRJT046VGhpcyBpcyBhbiBldmVudCByZW1pbmRlcg0K
+VFJJR0dFUjotUDBEVDBIMTBNMFMNCkVORDpWQUxBUk0NCkVORDpWRVZFTlQNCkVORDpWQ0FMRU5E
+QVINCg=--00000000000052ef100653c07ece--
